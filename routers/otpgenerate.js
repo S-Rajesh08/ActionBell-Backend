@@ -17,7 +17,7 @@ router.post("/otp", async (req, res) => {
         connectionTimeout:10000,
       });
   const appName = "ActionBell"; // Change to "DocVault" when needed
-
+try{
   await transport.sendMail({
     from: process.env.GMAIL,
     to: mail,
@@ -69,6 +69,10 @@ router.post("/otp", async (req, res) => {
     </div>
   `,
   });
+}catch(err)
+{
+  console.log("mail err:",err)
+}
   return res.json({ otp: otp });
 });
 module.exports = router;

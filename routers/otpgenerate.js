@@ -9,7 +9,8 @@ router.post("/otp", async (req, res) => {
   const transport = nodemailer.createTransport({
         host:"smtp.gmail.com",
         port:587,
-        secure:true,
+        secure:false,
+        requireTLS:true,
         auth: {
           user: process.env.GMAIL,
           pass: process.env.PASS,

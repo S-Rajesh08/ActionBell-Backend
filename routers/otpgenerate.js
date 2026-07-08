@@ -8,7 +8,7 @@ router.post("/otp", async (req, res) => {
 
   const transport = nodemailer.createTransport({
         host:"smtp.gmail.com",
-        port:465,
+        port:587,
         secure:true,
         auth: {
           user: process.env.GMAIL,

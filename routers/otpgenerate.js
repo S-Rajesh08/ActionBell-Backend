@@ -7,12 +7,15 @@ router.post("/otp", async (req, res) => {
   const otp = Math.floor(100000 + Math.random() * 900000);
 
   const transport = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL,
-      pass: process.env.PASS,
-    },
-  });
+        host:"smtp.gmail.com",
+        port:465,
+        secure:true,
+        auth: {
+          user: process.env.GMAIL,
+          pass: process.env.PASS,
+        },
+        connectionTimeout:10000,
+      });
   const appName = "ActionBell"; // Change to "DocVault" when needed
 
   await transport.sendMail({

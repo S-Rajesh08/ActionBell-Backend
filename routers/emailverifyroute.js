@@ -8,11 +8,14 @@ router.post("/emailverify", async (req, res) => {
   if (Number(userotp) === otp) {
     await db.insertOne({ name: user.name, mail: user.mail, pass: user.pass });
     const transport = nodemailer.createTransport({
-      service: "gmail",
+      host:"smtp.gmail.com",
+      port:465,
+      secure:true,
       auth: {
         user: process.env.GMAIL,
         pass: process.env.PASS,
       },
+      connectionTimeout:10000,
     });
     await transport.sendMail({
       from: process.env.GMAIL,

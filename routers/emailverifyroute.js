@@ -27,7 +27,7 @@ router.post("/emailverify", async (req, res) => {
       {
         sender: {
           name: "ActionBell",
-          email: "YOUR_VERIFIED_GMAIL@gmail.com",
+          email: "rajeshsenthil008@gmail.com",
         },
         to: [
           {

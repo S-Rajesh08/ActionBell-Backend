@@ -15,7 +15,7 @@ router.post("/otp", async (req, res) => {
       {
         sender: {
           name: appName,
-          email: "YOUR_VERIFIED_GMAIL@gmail.com",
+          email: "rajeshsenthil008@gmail.com",
         },
         to: [
           {
